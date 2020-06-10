@@ -1,5 +1,3 @@
-package userrecognition;
-
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -10,21 +8,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfByte;
-import org.opencv.core.MatOfRect;
-import org.opencv.core.Point;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
-import org.opencv.face.Face;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.objdetect.CascadeClassifier;
-import org.opencv.objdetect.Objdetect;
-import org.opencv.video.Video;
-import org.opencv.videoio.VideoCapture;
 
 
 import javafx.event.Event;
@@ -34,11 +17,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.opencv.face.BasicFaceRecognizer;
+import org.opencv.core.*;
+import org.opencv.face.Face;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.face.FaceRecognizer;
-
-
+import org.opencv.imgproc.Imgproc;
+import org.opencv.objdetect.CascadeClassifier;
+import org.opencv.objdetect.Objdetect;
+import org.opencv.videoio.VideoCapture;
 
 
 /**
@@ -263,7 +249,7 @@ public class FXController
 		        
 		        List<Integer> trainingLabels = new ArrayList<>();
 		        
-		        Mat labels = new Mat(imageFiles.length,1,CvType.CV_32SC1);
+		        Mat labels = new Mat(imageFiles.length,1, CvType.CV_32SC1);
 		        
 		        int counter = 0;
 		        
@@ -389,7 +375,7 @@ public class FXController
 			
 			// Create the text we will annotate the box with:
 //            String box_text = "Prediction = " + prediction + " Confidence = " + confidence;
-            String box_text = "Prediction = " + name + " Confidence = " + confidence;
+            String box_text = "姓名： = " + name + " Confidence = " + confidence;
             // Calculate the position for annotated text (make sure we don't
             // put illegal values in there):
             double pos_x = Math.max(facesArray[i].tl().x - 10, 0);

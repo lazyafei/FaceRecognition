@@ -1,5 +1,3 @@
-package userrecognition;
-
 import org.opencv.core.Core;
 
 import javafx.application.Application;
@@ -56,8 +54,8 @@ public class Main extends Application
 	public static void main(String[] args)
 	{
 		// load the native OpenCV library
-		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		
+		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		System.load("F:\\IntelliJ IDEA 2018.2.2\\WorkSpace\\Face-Recognition\\lib\\opencv_java310\\opencv_java310.dll");
 		launch(args);
 	}
 }
